@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByEmail(email);
     }
 
-    public User save(UserRegistrationDto registration){
+    public User save(UserRegistrationDto registration, Role role){
         User user = new User();
         user.setFirstName(registration.getFirstName());
         user.setLastName(registration.getLastName());
@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(registration.getPassword()));
         //user.setRoles(Arrays.asList(new Role("ROLE_USER")));
 
-        user.setRoles(Arrays.asList(roleService.findByName("ROLE_USER")));
+        user.setRoles(Arrays.asList(role));
         return userRepository.save(user);
     }
 
