@@ -23,6 +23,9 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Autowired
+    private RoleService roleService;
+
+    @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
     public User findByEmail(String email){
@@ -35,7 +38,9 @@ public class UserServiceImpl implements UserService {
         user.setLastName(registration.getLastName());
         user.setEmail(registration.getEmail());
         user.setPassword(passwordEncoder.encode(registration.getPassword()));
-        user.setRoles(Arrays.asList(new Role("ROLE_USER")));
+        //user.setRoles(Arrays.asList(new Role("ROLE_USER")));
+
+        user.setRoles(Arrays.asList(roleService.findByName("ROLE_USER")));
         return userRepository.save(user);
     }
 
