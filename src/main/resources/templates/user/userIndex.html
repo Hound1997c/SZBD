@@ -15,6 +15,14 @@
     <h1>Welcom in User Page</h1>
 </div>
 
+<form id="logoutForm" method="POST" action="${contextPath}/logout">
+    <div class="form-group">
+        <span>Want out? <a href="/" th:href="@{/logout}">logout</a></span>
+    </div>
+</form>
+
+
+
 <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
 <script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
 
