@@ -12,18 +12,12 @@
 </head>
 <body>
 <div class="container">
-    <h1>Welcom in User Page</h1>
+    <h1>List of the dealers</h1>
 </div>
 
 <form id="logoutForm" method="POST" action="${contextPath}/logout">
     <div class="form-group">
         <span>Want out? <a href="/" th:href="@{/logout}">logout</a></span>
-    </div>
-</form>
-
-<form id="dealers" method="POST" action="${contextPath}/showDealers">
-    <div class="form-group">
-        <span>The list of the dealers: <a href="/" th:href="@{/showdealers}">logout</a></span>
     </div>
 </form>
 

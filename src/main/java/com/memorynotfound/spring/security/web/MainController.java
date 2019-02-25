@@ -44,7 +44,7 @@ public class MainController {
                 return "admin/adminIndex";
             }
             else if(role.getName().equals("ROLE_USER")){
-                return "user/userIndex";
+                    return "user/userIndex";
             }
             else if(role.getName().equals("ROLE_DEALER")){
                 return "dealer/dealerIndex";
