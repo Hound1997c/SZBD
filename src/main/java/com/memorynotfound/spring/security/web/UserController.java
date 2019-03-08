@@ -10,4 +10,9 @@ public class UserController {
     public String showDealers() {
         return "user/dealers";
     }
+
+    @GetMapping("/sellItem")
+    public String sellItem() {
+        return "user/sellItem";
+    }
 }

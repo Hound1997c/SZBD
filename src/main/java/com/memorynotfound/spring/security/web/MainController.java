@@ -32,7 +32,7 @@ public class MainController {
         return "login";
     }
 
-    @GetMapping("/loggedIn")
+    @GetMapping("/loggedInk")
     public String userIndex() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findByEmail(auth.getName());

@@ -21,6 +21,18 @@
     </div>
 </form>
 
+<form id="dealers" method="POST" action="${contextPath}/showDealers">
+    <div class="form-group">
+        <span>The list of the dealers: <a href="/" th:href="@{/showdealers}">Show</a></span>
+    </div>
+</form>
+
+<form id="sellForm" method="POST" action="${contextPath}/sellItem">
+    <div class="form-group">
+        <span>Do you wanna sell an item? <a href="/" th:href="@{/sellItem}">Click here</a></span>
+    </div>
+</form>
+
 <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
 <script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
 
