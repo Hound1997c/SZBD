@@ -8,7 +8,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Collection;
 import java.util.List;
@@ -32,24 +34,34 @@ public class MainController {
         return "login";
     }
 
-    @GetMapping("/loggedInk")
-    public String userIndex() {
+    @GetMapping("/loggedIn")
+    public String userIndex(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findByEmail(auth.getName());
         System.out.println("email " + user.getEmail());
         Collection<Role> usersRoles= user.getRoles();
+        //ModelAndView modelAndView;
         for (Role role: usersRoles
              ) {
             if(role.getName().equals("ROLE_ADMIN")){
+                //modelAndView = new ModelAndView("admin/adminIndex");
+                model.addAttribute("message", "Baeldung");
                 return "admin/adminIndex";
+                //return ""; //redirect:/
             }
-            else if(role.getName().equals("ROLE_USER")){
-                    return "user/userIndex";
+            /*else if(role.getName().equals("ROLE_USER")){
+                modelAndView = new ModelAndView("user/userIndex");
+                return modelAndView;
+                    //return "user/userIndex";
             }
             else if(role.getName().equals("ROLE_DEALER")){
-                return "dealer/dealerIndex";
-            }
+                //return "dealer/dealerIndex";
+                modelAndView = new ModelAndView("dealer/dealerIndex");
+                return modelAndView;
+            }*/
         }
+        //modelAndView = new ModelAndView("index");
+        //return modelAndView;
         return "index";
     }
 }
